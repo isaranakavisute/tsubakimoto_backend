@@ -3,7 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const express = require('express');
 const router = express.Router();
-const url = "https://www.thairath.co.th/news/politic/2842217";
+//const url = "https://www.thairath.co.th/news/politic/2842217";
 count=0;
 web_title="";
 article_title="";
@@ -12,28 +12,65 @@ article_content_part_2="";
 article_image="";
 
 router.post('/', async function(req, res, next) {
-    await fetchData(req.body.url);
+
+    console.log("my parameter=",req.body.url);
+    //if (substr(req.body.url,'http'))
+     await fetchData(req.body.url);
+    // else
+    //  {
+    //     web_title="";
+    //     article_title="";
+    //     article_content_part_1="";
+    //     article_content_part_2="";
+    //     article_image="";
+    //  }
 
     res.writeHead(200, {'Content-Type': 'application/json'});
-    res.write(JSON.stringify({status:true, data:{
-        web_title: web_title,
-        article_title: article_title,
-        article_content_part_1: article_content_part_1,
-        article_content_part_2: article_content_part_2,
-        article_image: article_image
-    }}));
+    res.write
+    (
+        JSON.stringify
+        (
+             {
+              "data": 
+               {
+                "status":true, 
+                "info":
+                 {
+                  web_title: web_title,
+                  article_title: article_title,
+                  article_content_part_1: article_content_part_1,
+                  article_content_part_2: article_content_part_2,
+                  article_image: article_image
+                 }
+               }
+             }
+        )
+    );
+
+
+    // {
+    //     "data":
+    //     {"countries":
+    //     [
+    //         {
+    //             "name":"Canada"
+    //         }
+    //     ]
+    // }
+
    
     res.end();
     
 });
 
-async function fetchData(url){
+async function fetchData(url1){
 
-    console.log('my url=',url);
+    console.log('my url=',url1);
+    console.log(`url=`,url1+`?timestamp=${new Date().getTime()}`);
 
     if (count==0) 
     {
-     let response = await axios(url).catch((err) => console.log(err));
+     let response = await axios( url1+`?timestamp="+${new Date().getTime()}` ).catch((err) => console.log(err));
      if (response.status !== 200){
         console.log("Error occurred while fetching data");
         return;
