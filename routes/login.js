@@ -8,7 +8,7 @@ router.post('/', async function(req, res, next)
  const db = require('../db');
  const config = require('../config');
  const helper = require('../helper');
- sql = "select * from username_password where myusername='" + req.body.username + "' and mypassword='" + req.body.password + "'";
+ sql = "select * from user where usr='" + req.body.usr + "' and pwd='" + req.body.pwd + "' and access='" + req.body.access  + "'";
  console.log(sql);
  var results = await db.query(sql);
  console.log(results);
@@ -24,8 +24,9 @@ router.post('/', async function(req, res, next)
       "status":true,
       "login":
        {
-        "username": req.body.username,
-        "password": req.body.password,
+        "username": req.body.usr,
+        "password": req.body.pwd,
+        "access": req.body.access,
         "result": "pass"
        }
       }
@@ -44,8 +45,9 @@ else
       "status":true,
       "login":
       {
-       "username": req.body.username,
-       "password": req.body.password,
+       "username": req.body.usr,
+       "password": req.body.pwd,
+       "access": req.body.access,
        "result": "fail"
       }
      }

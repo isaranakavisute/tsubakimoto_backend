@@ -17,16 +17,15 @@ req.body.email
 const db = require('../db');
 const config = require('../config');
 const helper = require('../helper');
-var sql = "insert into username_password(myusername,mypassword,myemail) values ('" + req.body.username + "','" + req.body.password + "','" + req.body.email + "')";
+var sql = "insert into user(usr,pwd,access) values ('" + req.body.usr + "','" + req.body.pwd + "','" + req.body.access + "')";
 console.log(sql);
 await db.query(sql);
-sql = "select * from username_password where myusername='" + req.body.username + "'";
+sql = "select * from user where usr='" + req.body.usr + "' and pwd='" + req.body.pwd + "' and access='" + req.body.access + "'" ;
 console.log(sql);
 const rows = await db.query(sql);
-//const data = helper.emptyOrRows(rows);
-//res.json(data);
-
-if (rows)
+console.log(rows);
+console.log(rows.length)
+if (rows.length)
   {
     res.writeHead(200, {'Content-Type': 'application/json'});
     res.write
@@ -38,9 +37,9 @@ if (rows)
                 "status":true, 
                 "register":
                  {
-                  "username": req.body.username,
-                  "password": req.body.password,
-                  "email": req.body.email,
+                  "usr": req.body.usr,
+                  "pwd": req.body.pwd,
+                  "access": req.body.access,
                   "result": "pass"
                  }
 
@@ -56,18 +55,19 @@ else
     (
         JSON.stringify
         (
-             {
+            {
 
-                "status":true,
+                "status":true, 
                 "register":
-                  {
-                   "username": req.body.username,
-                   "password": req.body.password,
-                    "email": req.body.email,
-                   "result": "fail"
-                  }
+                 {
+                  "usr": req.body.usr,
+                  "pwd": req.body.pwd,
+                  "access": req.body.access,
+                  "result": "fail"
+                 }
 
              }
+
         )
     );
     res.end();
