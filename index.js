@@ -20,7 +20,7 @@ var cors = require('cors');
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.json({ message: "ok" });
+  res.json({ "API for Tsubakimoto Pricelist System": "ok" });
 });
 app.use("/webcrawler", webCrawlerRouter);
 app.use("/login", loginRouter);
