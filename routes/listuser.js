@@ -8,7 +8,7 @@ router.post('/', async function(req, res, next)
 const db = require('../db');
 const config = require('../config');
 const helper = require('../helper');
-sql = "select * from username_password";
+sql = "select * from user";
 console.log(sql);
 var results = await db.query(sql);
 console.log(results);

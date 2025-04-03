@@ -2,9 +2,14 @@ const express = require("express");
 const bodyParser = require('body-parser')
 const app = express();
 const port = 3006;
+
+//const port = 3007;
+
 const webCrawlerRouter = require("./routes/webcrawler");
 const loginRouter = require("./routes/login");
 const registerRouter = require("./routes/register");
+const editUserRouter = require("./routes/edituserrouter");
+const deleteUserRouter = require("./routes/deleteuserrouter");
 const listUserRouter = require("./routes/listuser");;
 app.use(express.json());
 app.use(
@@ -26,6 +31,8 @@ app.use("/webcrawler", webCrawlerRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
 app.use("/listuser", listUserRouter);
+app.use("/edit", editUserRouter);
+app.use("/delete", deleteUserRouter);
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   console.error(err.message, err.stack);

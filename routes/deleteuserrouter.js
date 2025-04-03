@@ -9,7 +9,7 @@ req.body.usr,
 "password=",
 req.body.pwd,
 ",",
-"email=",
+"access=",
 req.body.access
 );
 
@@ -17,7 +17,7 @@ req.body.access
 const db = require('../db');
 const config = require('../config');
 const helper = require('../helper');
-var sql = "insert into user(usr,pwd,access) values ('" + req.body.usr + "','" + req.body.pwd + "','" + req.body.access + "')";
+var sql = "delete from user where usr='"+req.body.usr+"' and pwd='"+req.body.pwd+"' and access='"+req.body.access+"'";
 console.log(sql);
 await db.query(sql);
 sql = "select * from user where usr='" + req.body.usr + "' and pwd='" + req.body.pwd + "' and access='" + req.body.access + "'" ;
@@ -25,7 +25,7 @@ console.log(sql);
 const rows = await db.query(sql);
 console.log(rows);
 console.log(rows.length)
-if (rows.length)
+if (rows.length==0)
   {
     res.writeHead(200, {'Content-Type': 'application/json'});
     res.write
@@ -35,7 +35,7 @@ if (rows.length)
              {
 
                 "status":true, 
-                "register":
+                "deletion":
                  {
                   "usr": req.body.usr,
                   "pwd": req.body.pwd,
@@ -58,7 +58,7 @@ else
             {
 
                 "status":true, 
-                "register":
+                "deletion":
                  {
                   "usr": req.body.usr,
                   "pwd": req.body.pwd,
