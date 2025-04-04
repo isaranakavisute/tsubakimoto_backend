@@ -5,7 +5,7 @@ const config = {
       password: "1234",
       database: "mydb",
       connectTimeout: 60000,
-      port: 3307
+      port: 3307 //3306
     },
     listPerPage: 10,
   };
