@@ -12,6 +12,7 @@ const editUserRouter = require("./routes/edituserrouter");
 const deleteUserRouter = require("./routes/deleteuserrouter");
 const listUserRouter = require("./routes/listuser");
 const getUserByIdRouter = require("./routes/getuserbyid");
+const uploadExcelRouter = require("./routes/uploadexcel");
 app.use(express.json());
 app.use(
   express.urlencoded({
@@ -35,6 +36,7 @@ app.use("/listuser", listUserRouter);
 app.use("/edit", editUserRouter);
 app.use("/delete", deleteUserRouter);
 app.use("/getuserbyid", getUserByIdRouter);
+app.use("/upload_excel", uploadExcelRouter);
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   console.error(err.message, err.stack);
