@@ -13,6 +13,24 @@ const deleteUserRouter = require("./routes/deleteuserrouter");
 const listUserRouter = require("./routes/listuser");
 const getUserByIdRouter = require("./routes/getuserbyid");
 const uploadExcelRouter = require("./routes/uploadexcel");
+
+
+const upload_excel_update_master_sugar_stock_Router = require("./routes/upload_excel_update_master_sugar_stock");
+const upload_excel_update_master_sprocket_pricelist_Router = require("./routes/upload_excel_update_master_sprocket_pricelist");
+const upload_excel_update_master_small_size_chain_pricelist_Router = require("./routes/upload_excel_update_master_small_size_chain_pricelist");
+const upload_excel_update_master_ptuc_other_dist_Router = require("./routes/upload_excel_update_master_ptuc_other_dist");
+const upload_excel_update_master_ptuc_kte_Router = require("./routes/upload_excel_update_master_ptuc_kte");
+const upload_excel_update_master_kte_stock_Router = require("./routes/upload_excel_update_master_kte_stock");
+const upload_excel_update_master_jpy_chain_Router = require("./routes/upload_excel_update_master_jpy_chain");
+const upload_excel_update_master_akt_format_warehouse_pricelist_Router = require("./routes/upload_excel_update_master_akt_format_warehouse_pricelist");
+const upload_excel_update_master_akt_format_scg_group_chain_Router = require("./routes/upload_excel_update_master_akt_format_scg_group_chain");
+const upload_excel_update_master_akt_format_scg_group_cam_clutch_Router = require("./routes/upload_excel_update_master_akt_format_scg_group_cam_clutch");
+const upload_excel_update_master_akt_format_kabelschlepp_Router = require("./routes/upload_excel_update_master_akt_format_kabelschlepp");
+const upload_excel_update_master_drivechain_Router = require("./routes/upload_excel_update_master_drivechain");
+const upload_excel_update_user_data_tsubakimoto_Router = require("./routes/upload_excel_update_user_data_tsubakimoto");
+
+
+
 app.use(express.json());
 app.use(
   express.urlencoded({
@@ -37,6 +55,25 @@ app.use("/edit", editUserRouter);
 app.use("/delete", deleteUserRouter);
 app.use("/getuserbyid", getUserByIdRouter);
 app.use("/upload_excel", uploadExcelRouter);
+
+
+
+app.use("/upload_excel_update_master_sugar_stock",upload_excel_update_master_sugar_stock_Router);
+app.use("/upload_excel_update_master_sprocket_pricelist",upload_excel_update_master_sprocket_pricelist_Router);
+app.use("/upload_excel_update_master_small_size_chain_pricelist",upload_excel_update_master_small_size_chain_pricelist_Router);
+app.use("/upload_excel_update_master_ptuc_other_dist",upload_excel_update_master_ptuc_other_dist_Router);
+app.use("/upload_excel_update_master_ptuc_kte",upload_excel_update_master_ptuc_kte_Router);
+app.use("/upload_excel_update_master_kte_stock",upload_excel_update_master_kte_stock_Router);
+app.use("/upload_excel_update_master_jpy_chain",upload_excel_update_master_jpy_chain_Router);
+app.use("/upload_excel_update_master_akt_format_warehouse_pricelist",upload_excel_update_master_akt_format_warehouse_pricelist_Router);
+app.use("/upload_excel_update_master_akt_format_scg_group_chain",upload_excel_update_master_akt_format_scg_group_chain_Router);
+app.use("/upload_excel_update_master_akt_format_scg_group_cam_clutch",upload_excel_update_master_akt_format_scg_group_cam_clutch_Router);
+app.use("/upload_excel_update_master_akt_format_kabelschlepp",upload_excel_update_master_akt_format_kabelschlepp_Router);
+app.use("/upload_excel_update_master_drivechain",upload_excel_update_master_drivechain_Router);
+app.use("/upload_excel_update_user_data_tsubakimoto",upload_excel_update_user_data_tsubakimoto_Router);
+
+
+
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   console.error(err.message, err.stack);
