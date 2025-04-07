@@ -29,7 +29,7 @@ const upload_excel_update_master_akt_format_kabelschlepp_Router = require("./rou
 const upload_excel_update_master_drivechain_Router = require("./routes/upload_excel_update_master_drivechain");
 const upload_excel_update_user_data_tsubakimoto_Router = require("./routes/upload_excel_update_user_data_tsubakimoto");
 
-
+const get_master_akt_format_kabelschlepp_Router = require("./routes/get_master_akt_format_kabelschlepp");
 
 app.use(express.json());
 app.use(
@@ -71,6 +71,8 @@ app.use("/upload_excel_update_master_akt_format_scg_group_cam_clutch",upload_exc
 app.use("/upload_excel_update_master_akt_format_kabelschlepp",upload_excel_update_master_akt_format_kabelschlepp_Router);
 app.use("/upload_excel_update_master_drivechain",upload_excel_update_master_drivechain_Router);
 app.use("/upload_excel_update_user_data_tsubakimoto",upload_excel_update_user_data_tsubakimoto_Router);
+
+app.use("/get_master_akt_format_kabelschlepp", get_master_akt_format_kabelschlepp_Router);
 
 
 
