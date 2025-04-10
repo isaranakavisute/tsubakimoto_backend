@@ -93,7 +93,7 @@ else
        {
         var arr = line.split(",");
         for(var i=0;i<arr.length;i++) {
-         if (arr[i]=="" || arr[i].indexOf('sharedFormula')!=-1 || arr[i].indexOf('#DIV')!=-1  ) arr[i] = "blank";
+         if (arr[i]=="" || arr[i].indexOf('sharedFormula')!=-1 || arr[i].indexOf('#DIV')!=-1 || arr[i].indexOf('#VALUE')!=-1  ) arr[i] = "blank";
          var token_number = i + 1;
          console.log("token #"+ token_number + ") " + arr[i]);
         }
