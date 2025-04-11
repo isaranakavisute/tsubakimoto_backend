@@ -84,9 +84,9 @@ else
        .then(async function() {
        console.log("saved csv...done");
        var line_cnt=0;
-       sql = "delete from master_sugar_stock";
-       console.log(sql);
-       await db.query(sql);
+       //sql = "delete from master_sugar_stock";
+       //console.log(sql);
+       //await db.query(sql);
        lineReader.eachLine('uploaded_files/sample_update_master_sugar_stock.csv', async function(line, last) {
        line_cnt++;
        if (line_cnt >= 17)
@@ -99,7 +99,9 @@ else
         }
         console.log("---");
 
-        sql="insert into master_sugar_stock(category,part_no,previous_model_no,new_model_no,unit,manufacturer_suggested_retail_price,new_manufacturer_suggested_retail_price,conversion_to_ft,diff_for_cost,op_price,po_price_jpy_usd,po_price_currency,remark,thb_cost,gp,pricelist_name,multiplier,make_same_price_as_standard_price,new_make_same_price_as_standard_price,standard_price,diff,dist_pl_mull,dist_ex_rate,unit_price,new_unit_price,diff_unit_price,status,supplier_name,stock_reference,cutting_assembly,detail)";
+        //sql="insert into master_sugar_stock(category,part_no,previous_model_no,new_model_no,unit,manufacturer_suggested_retail_price,new_manufacturer_suggested_retail_price,conversion_to_ft,diff_for_cost,op_price,po_price_jpy_usd,po_price_currency,remark,thb_cost,gp,pricelist_name,multiplier,make_same_price_as_standard_price,new_make_same_price_as_standard_price,standard_price,diff,dist_pl_mull,dist_ex_rate,unit_price,new_unit_price,diff_unit_price,status,supplier_name,stock_reference,cutting_assembly,detail)";
+        //master_tsubakimoto
+        sql="insert into master_tsubakimoto(category,part_no,previous_model_no,new_model_no,unit,manufacturer_suggested_retail_price,new_manufacturer_suggested_retail_price,conversion_to_ft,diff_for_cost,op_price,po_price_jpy_usd,po_price_currency,remark,thb_cost,gp,pricelist_name,multiplier,make_same_price_as_standard_price,new_make_same_price_as_standard_price,standard_price,diff,dist_pl_mull,dist_ex_rate,unit_price,new_unit_price,diff_unit_price,status,supplier_name,stock_reference,cutting_assembly,detail)";
         sql += " values ('";
         sql += arr[0];
         sql += "','";
