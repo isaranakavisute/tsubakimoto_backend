@@ -354,6 +354,129 @@ app.post("/master_data/add", async (req, res) => {
 });
 
 
+app.post("/master_data/update", async (req, res) => {
+    const db = require('./db');
+    const config = require('./config');
+    const helper = require('./helper');
+
+    sql = "update master_tsubakimoto set ";
+    sql += "category='";
+    sql += req.body.category;
+    sql += "',";
+    sql += "part_no='";
+    sql += req.body.part_no;
+    sql += "',";
+    sql += "previous_model_no='";
+    sql += req.body.previous_model_no;
+    sql += "',";
+    sql += "new_model_no='";
+    sql += req.body.new_model_no;
+    sql += "',";
+    sql += "unit='";
+    sql += req.body.unit;
+    sql += "',";
+    sql += "manufacturer_suggested_retail_price='";
+    sql += req.body.manufacturer_suggested_retail_price;
+    sql += "',";
+    sql += "new_manufacturer_suggested_retail_price='";
+    sql += req.body.new_manufacturer_suggested_retail_price;
+    sql += "',";
+    sql += "conversion_to_ft='";
+    sql += req.body.conversion_to_ft;
+    sql += "',";
+    sql += "diff_for_cost='";
+    sql += req.body.diff_for_cost;
+    sql += "',";
+    sql += "op_price='";
+    sql += req.body.op_price;
+    sql += "',";
+    sql += "po_price_jpy_usd='";
+    sql += req.body.po_price_jpy_usd;
+    sql += "',";
+    sql += "po_price_currency='";
+    sql += req.body.po_price_currency;
+    sql += "',";
+    sql += "remark='";
+    sql += req.body.remark;
+    sql += "',";
+    sql += "thb_cost='";
+    sql += req.body.thb_cost;
+    sql += "',";
+    sql += "gp='";
+    sql += req.body.gp;
+    sql += "',";
+    sql += "pricelist_name='";
+    sql += req.body.pricelist_name;
+    sql += "',";
+    sql += "multiplier='";
+    sql += req.body.multiplier;
+    sql += "',";
+    sql += "make_same_price_as_standard_price='";
+    sql += req.body.make_same_price_as_standard_price;
+    sql += "',";
+    sql += "new_make_same_price_as_standard_price='";
+    sql += req.body.new_make_same_price_as_standard_price;
+    sql += "',";
+    sql += "standard_price='";
+    sql += req.body.standard_price;
+    sql += "',";
+    sql += "diff='";
+    sql += req.body.diff;
+    sql += "',";
+    sql += "dist_pl_mull='";
+    sql += req.body.dist_pl_mull;
+    sql += "',";
+    sql += "dist_ex_rate='";
+    sql += req.body.dist_ex_rate;
+    sql += "',";
+    sql += "unit_price='";
+    sql += req.body.unit_price;
+    sql += "',";
+    sql += "new_unit_price='";
+    sql += req.body.new_unit_price;
+    sql += "',";
+    sql += "diff_unit_price='";
+    sql += req.body.diff_unit_price;
+    sql += "',";
+    sql += "status='";
+    sql += req.body.status;
+    sql += "',";
+    sql += "supplier_name='";
+    sql += req.body.supplier_name;
+    sql += "',";
+    sql += "stock_reference='";
+    sql += req.body.stock_reference;
+    sql += "',";
+    sql += "cutting_assembly='";
+    sql += req.body.cutting_assembly;
+    sql += "',";
+    sql += "detail='";
+    sql += req.body.detail;
+    sql += "' where Id=";
+    sql += req.body.id;
+    console.log(sql);
+    await db.query(sql);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+              res.write
+              (
+               JSON.stringify
+               (
+                {
+                 "status":true,
+                 "add_record_to_master_table":
+                  {
+                   "result": "pass"
+                  }
+                 }
+               )
+              );
+    res.end();
+
+
+});
+
+
+
 
 
 
