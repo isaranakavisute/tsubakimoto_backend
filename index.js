@@ -453,7 +453,7 @@ app.post("/master_data/update", async (req, res) => {
     sql += "detail='";
     sql += req.body.detail;
     sql += "' where Id=";
-    sql += req.body.id;
+    sql += req.body.Id;
     console.log(sql);
     await db.query(sql);
     res.writeHead(200, {'Content-Type': 'application/json'});
