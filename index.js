@@ -61,6 +61,31 @@ app.post("/master_data/listall", async (req, res) => {
  res.json(results);
 });
 
+app.post("/master_data/deleteall", async (req, res) => {
+ const db = require('./db');
+ const config = require('./config');
+ const helper = require('./helper');
+ sql = "delete from master_tsubakimoto";
+ console.log(sql);
+ await db.query(sql);
+ res.writeHead(200, {'Content-Type': 'application/json'});
+ res.write
+ (
+         JSON.stringify
+         (
+              {
+                 "status":true,
+                 "deleteall":
+                  {
+                    "table": "master_tsubakimoto",
+                    "result": "pass"
+                  }
+              }
+         )
+ );
+ res.end();
+});
+
 app.use("/webcrawler", webCrawlerRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
