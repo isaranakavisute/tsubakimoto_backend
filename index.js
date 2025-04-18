@@ -49,6 +49,18 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.json({ "API for Tsubakimoto Pricelist System": "ok" });
 });
+
+app.post("/master_data/listall", async (req, res) => {
+ const db = require('../db');
+ const config = require('../config');
+ const helper = require('../helper');
+ sql = "select * from master_tsubakimoto";
+ console.log(sql);
+ var results = await db.query(sql);
+ console.log(results);
+ res.json(results);
+});
+
 app.use("/webcrawler", webCrawlerRouter);
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
@@ -57,9 +69,6 @@ app.use("/edit", editUserRouter);
 app.use("/delete", deleteUserRouter);
 app.use("/getuserbyid", getUserByIdRouter);
 app.use("/upload_excel", uploadExcelRouter);
-
-
-
 app.use("/upload_excel_update_master_sugar_stock",upload_excel_update_master_sugar_stock_Router);
 app.use("/upload_excel_update_master_sprocket_pricelist",upload_excel_update_master_sprocket_pricelist_Router);
 app.use("/upload_excel_update_master_small_size_chain_pricelist",upload_excel_update_master_small_size_chain_pricelist_Router);
@@ -73,7 +82,6 @@ app.use("/upload_excel_update_master_akt_format_scg_group_cam_clutch",upload_exc
 app.use("/upload_excel_update_master_akt_format_kabelschlepp",upload_excel_update_master_akt_format_kabelschlepp_Router);
 app.use("/upload_excel_update_master_drivechain",upload_excel_update_master_drivechain_Router);
 app.use("/upload_excel_update_user_data_tsubakimoto",upload_excel_update_user_data_tsubakimoto_Router);
-
 app.use("/get_master_akt_format_kabelschlepp", get_master_akt_format_kabelschlepp_Router);
 app.use("/clear_master_tsubakimoto_database", clear_master_tsubakimoto_database_Router);
 
