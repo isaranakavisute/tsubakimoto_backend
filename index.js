@@ -51,9 +51,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/master_data/listall", async (req, res) => {
- const db = require('../db');
- const config = require('../config');
- const helper = require('../helper');
+ const db = require('./db');
+ const config = require('./config');
+ const helper = require('./helper');
  sql = "select * from master_tsubakimoto";
  console.log(sql);
  var results = await db.query(sql);

@@ -1,0 +1,26 @@
+,,,,,,,,,,,,,PO multiplier,Exchange rate
+,,,,,,,,,,,,JPY,1.1440000000000001,0.26
+,,,,,,,,,,,,USD,1.16688,38
+Category,Part No.,Previous Model No. ,New Model No. ,Unit ,"Manufacturer's suggested 
+retail price","(New) Manufacturer's suggested 
+retail price",Conversion to FT,% dif for cost,"(TTCL Internal Use)
+PO Price","PO price
+JPY/USD",PO price currency,REMARK (internal),"(TTCL Internal Use)
+ THB Cost","(TTCL Internal Use)
+GP",Pricelist Name,Multipiler,"Make same Price as Standard Price (THB)
+=JPY/USD*Mul.","(New)
+Make same Price as Standard Price","Standard Price (THB)
+*Copy from excel",เช็คความต่าง %,"DIST. PL
+ MUL.",Dist. Ex rate,Unit price (THB),(NEW) Unit price (THB),% dif for Unit price (SP),Status,Supplier Name,"Stock Reference 
+(RPP)","Cutting &
+Assembly",Detail
+1,1,,RS120-1-CP,FT,1196,1196,1,,1,1196,JPY(¥),,355.7382400000001,-0.06468609053497983,SUGAR STOCK ,1.241638795986622,1484.9999999999998,1484.9999999999998,1485,1.5311358615705866e-16,1,0.225,334.12499999999994,334.12499999999994,,,TC,,,MOQ : 280 FT
+1,2,,RS140-1-CP,FT,1455,1455,1,"{""sharedFormula"":""I5""}",1,1455,JPY(¥),,432.77520000000004,-0.08607867494824036,SUGAR STOCK ,1.2171821305841923,1770.9999999999998,1770.9999999999998,1771,1.283871685167883e-16,1,0.225,398.47499999999997,398.47499999999997,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 250 FT
+1,3,,RS160-1-CP,FT,1831,1831,1,"{""sharedFormula"":""I5""}",1,1831,JPY(¥),,544.61264,-0.091298747620479,SUGAR STOCK ,1.2113599126160568,2218,2218,2218,"{""sharedFormula"":""U5""}",1,0.225,499.05,499.05,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 200 FT
+1,4,,RS200-1-CP,FT,3687,3687,1,"{""sharedFormula"":""I5""}",1,3687,JPY(¥),,1096.6612800000003,-0.12201890730509544,SUGAR STOCK ,1.178193653376729,4344,4344,4344,"{""sharedFormula"":""U5""}",1,0.225,977.4,977.4,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 100 FT
+1,5,,RS240-1-CP,FT,6211,6211,1,"{""sharedFormula"":""I5""}",1,6211,JPY(¥),,1847.3998400000003,-0.027103572123537194,SUGAR STOCK ,1.287071325068427,7994,7994,7994,"{""sharedFormula"":""U5""}",1,0.225,1798.65,1798.65,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 50 FT
+1,6,,RS120-2-CP,FT,2644,2644,1,"{""sharedFormula"":""I5""}",1,2644,JPY(¥),,786.4313600000002,0.037121077441077385,SUGAR STOCK ,1.3729198184568836,3630.0000000000005,3630.0000000000005,3630,-1.2527475231032068e-16,1,0.225,816.7500000000001,816.7500000000001,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 120 FT
+1,7,,RS140-2-CP,FT,3159,3159,1,"{""sharedFormula"":""I5""}",1,3159,JPY(¥),,939.61296,0.07466040327941505,SUGAR STOCK ,1.4286166508388731,4513,4513,4513,"{""sharedFormula"":""U5""}",1,0.225,1015.4250000000001,1015.4250000000001,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 100 FT
+1,8,,RS160-2-CP,FT,3962,3962,1,"{""sharedFormula"":""I5""}",1,3962,JPY(¥),,1178.45728,-0.06802363603407648,SUGAR STOCK ,1.237758707723372,4904,4904,4904,"{""sharedFormula"":""U5""}",1,0.225,1103.4,1103.4,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 100 FT
+1,9,,RS200-2-CP,FT,8123,8123,1,"{""sharedFormula"":""I5""}",1,8123,JPY(¥),,2416.1051200000006,-0.17718098857463047,SUGAR STOCK ,1.1229841191677952,9122,9122,9122,"{""sharedFormula"":""U5""}",1,0.225,2052.4500000000003,2052.4500000000003,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 50 FT
+1,10,,RS240-2-CP,FT,14999,14999,1,"{""sharedFormula"":""I5""}",1,14999,JPY(¥),,4461.302560000001,-0.16546237452405696,SUGAR STOCK ,1.1342756183745584,17013,17013,17013,"{""sharedFormula"":""U5""}",1,0.225,3827.925,3827.925,"{""sharedFormula"":""Z5""}",,TC,,,MOQ : 30 FT
