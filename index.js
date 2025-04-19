@@ -754,7 +754,7 @@ app.post("/masterformula/upload", async (req, res) => {
     form.parse(req, function (err, fields, files) {
      var oldpath = files.file[0].filepath;
      var newpath =  'uploaded_files/myupload.xlsx';
-     fs.rename(oldpath, newpath, function (err) {
+     fs.rename(oldpath, newpath, async function (err) {
        if (err)
        {
          res.writeHead(200, {'Content-Type': 'application/json'});
