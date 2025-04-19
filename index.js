@@ -561,6 +561,7 @@ app.post("/master_formula/upload", async (req, res) => {
     const helper = require('./helper');
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
+     console.log(files);
      var oldpath = files.formula[0].filepath;
      var newpath =  'uploaded_files/myupload.xlsx';
      fs.rename(oldpath, newpath, async function (err) {
