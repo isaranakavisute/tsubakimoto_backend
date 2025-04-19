@@ -791,123 +791,123 @@ app.post("/master_formula/upload", async (req, res) => {
 
                           sql += "','";
                           value = row.getCell(2).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(2).value;
 
                           sql += "','";
                           value = row.getCell(3).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(3).value;
 
                           sql += "','";
                           value = row.getCell(4).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(4).value;
 
                           sql += "','";
                           value = row.getCell(5).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(5).value;
 
                           sql += "','";
                           value = row.getCell(6).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(6).value;
 
                           sql += "','";
                           value = row.getCell(7).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(7).value;
 
                           sql += "','";
                           value = row.getCell(8).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(8).value;
 
                           sql += "','";
                           value = row.getCell(9).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(9).value;
 
                           sql += "','";
                           value = row.getCell(10).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(10).value;
 
                           sql += "','";
                           value = row.getCell(11).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(11).value;
 
                           sql += "','";
                           value = row.getCell(12).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(12).value;
 
                           sql += "','";
                           value = row.getCell(13).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(13).value;
 
                           sql += "','";
                           value = row.getCell(14).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(14).value;
 
                           sql += "','";
                           value = row.getCell(15).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(15).value;
 
                           sql += "','";
                           value = row.getCell(16).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(16).value;
 
                           sql += "','";
                           value = row.getCell(17).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(17).value;
 
                           sql += "','";
                           value = row.getCell(18).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(18).value;
 
                           sql += "','";
                           value = row.getCell(19).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(19).value;
 
                           sql += "','";
                           value = row.getCell(20).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(20).value;
 
                           sql += "','";
                           value = row.getCell(21).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(21).value;
 
                           sql += "','";
                           value = row.getCell(22).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(22).value;
 
                           sql += "','";
                           value = row.getCell(23).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(23).value;
 
                           sql += "','";
                           value = row.getCell(24).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(24).value;
 
                           sql += "','";
                           value = row.getCell(25).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(25).value;
 
                           sql += "','";
                           value = row.getCell(26).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(26).value;
 
                           sql += "','";
                           value = row.getCell(27).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(27).value;
 
                           sql += "','";
                           value = row.getCell(28).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(28).value;
 
                           sql += "','";
                           value = row.getCell(29).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(29).value;
 
                           sql += "','";
                           value = row.getCell(30).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(30).value;
 
                           sql += "','";
                           value = row.getCell(31).formula;
-                          sql += value ? value.toString() : '';
+                          sql += value ? value.toString() : row.getCell(31).value;
 
                           sql += "')";
                           console.log(sql);
