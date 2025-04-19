@@ -54,6 +54,46 @@ app.get("/", (req, res) => {
   res.json({ "API for Tsubakimoto Pricelist System": "ok" });
 });
 
+app.post("/master_history/listall", async (req, res) => {
+ const db = require('./db');
+ const config = require('./config');
+ const helper = require('./helper');
+ sql = "select * from master_pricelist_history";
+ console.log(sql);
+ var results = await db.query(sql);
+ console.log(results);
+ res.json(results);
+});
+
+
+app.post("/master_data/delete", async (req, res) => {
+    const db = require('./db');
+    const config = require('./config');
+    const helper = require('./helper');
+
+    sql = "delete from master_pricelist_history where ";
+    sql += "Id=";
+    sql += req.body.Id;
+    console.log(sql);
+    await db.query(sql);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+              res.write
+              (
+               JSON.stringify
+               (
+                {
+                 "status":true,
+                 "delete_record_from master_pricelist_history":
+                  {
+                   "result": "pass",
+                   "id": req.body.Id
+                  }
+                 }
+               )
+              );
+    res.end();
+});
+
 app.post("/master_data/listall", async (req, res) => {
  const db = require('./db');
  const config = require('./config');
