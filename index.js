@@ -886,7 +886,7 @@ app.post("/master_formula/upload", async (req, res) => {
                           sql += value ? value.toString() : '';
 
                           sql += "','";
-                          value = row.getCell(26).value;
+                          value = row.getCell(26).formula;
                           sql += value ? value.toString() : '';
 
                           sql += "','";
