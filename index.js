@@ -557,7 +557,7 @@ app.post("/master_formula/deleteall", async (req, res) => {
 
 
 
-app.post("/master_formula/upload", async (req, res) => {
+app.post("/masterformula/upload", async (req, res) => {
     const db = require('./db');
     const config = require('./config');
     const helper = require('./helper');
