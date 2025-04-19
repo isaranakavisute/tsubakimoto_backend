@@ -778,111 +778,141 @@ app.post("/masterformula/upload", async (req, res) => {
        else
        {
           var wb = new Excel.Workbook();
-          wb.xlsx.readFile('uploaded_files/myupload.xlsx').then(function(){
-          wb.csv.writeFile('uploaded_files/myupload.csv' )
-          .then(async function() {
-          console.log("saved csv...done");
-          var line_cnt=0;
-          lineReader.eachLine('uploaded_files/myupload.csv', async function(line, last) {
-          line_cnt++;
-          if (line_cnt >= 17)
-          {
-           var arr = line.split(",");
-           for(var i=0;i<arr.length;i++) {
-            if (arr[i]=="" || arr[i].indexOf('sharedFormula')!=-1) arr[i] = "blank";
-            var token_number = i + 1;
-            console.log("token #"+ token_number + ") " + arr[i]);
-           }
-           console.log("---");
-           sql="insert into master_tsubakimoto(category,part_no,previous_model_no,new_model_no,unit,manufacturer_suggested_retail_price,new_manufacturer_suggested_retail_price,conversion_to_ft,diff_for_cost,op_price,po_price_jpy_usd,po_price_currency,remark,thb_cost,gp,pricelist_name,multiplier,make_same_price_as_standard_price,new_make_same_price_as_standard_price,standard_price,diff,dist_pl_mull,dist_ex_rate,unit_price,new_unit_price,diff_unit_price,status,supplier_name,stock_reference,cutting_assembly,detail)";
-           sql += " values ('";
-           sql += arr[0];
-           sql += "','";
-           sql += arr[1];
-           sql += "','";
-           sql += arr[2];
-           sql += "','";
-           sql += arr[3];
-           sql += "','";
-           sql += arr[4];
-           sql += "','";
-           sql += arr[5];
-           sql += "','";
-           sql += arr[6];
-           sql += "','";
-           sql += arr[7];
-           sql += "','";
-           sql += arr[8];
-           sql += "','";
-           sql += arr[9];
-           sql += "','";
-           sql += arr[10];
-           sql += "','";
-           sql += arr[11];
-           sql += "','";
-           sql += arr[12];
-           sql += "','";
-           sql += arr[13];
-           sql += "','";
-           sql += arr[14];
-           sql += "','";
-           sql += arr[15];
-           sql += "','";
-           sql += arr[16];
-           sql += "','";
-           sql += arr[17];
-           sql += "','";
-           sql += arr[18];
-           sql += "','";
-           sql += arr[19];
-           sql += "','";
-           sql += arr[20];
-           sql += "','";
-           sql += arr[21];
-           sql += "','";
-           sql += arr[22];
-           sql += "','";
-           sql += arr[23];
-           sql += "','";
-           sql += arr[24];
-           sql += "','";
-           sql += arr[25];
-           sql += "','";
-           sql += arr[26];
-           sql += "','";
-           sql += arr[27];
-           sql += "','";
-           sql += arr[28];
-           sql += "','";
-           sql += arr[29];
-           sql += "','";
-           sql += arr[30];
-           sql += "')";
-           console.log(sql);
-           await db.query(sql);
-           }
-          if(last){
-          }
-          });
-          });
-          res.writeHead(200, {'Content-Type': 'application/json'});
-          res.write
-          (
-           JSON.stringify
-           (
-            {
-             "status":true,
-             "upload_excel":
-              {
-               "result": "pass",
-               "oldpath": oldpath,
-               "newpath": newpath
-              }
-             }
-           )
-          );
-          res.end();
-         });
+                    const content = await wb.xlsx.readFile(filePath);
+                    const worksheet = content.worksheets[0];
+                    const rowStartIndex = 4;
+                    const numberOfRows = worksheet.rowCount - 4;
+                    const rows = worksheet.getRows(rowStartIndex, numberOfRows) ?? [];
+                    rows.map((row) => {
+                          sql="insert into master_tsubakimoto_formula(category,part_no,previous_model_no,new_model_no,unit,manufacturer_suggested_retail_price,new_manufacturer_suggested_retail_price,conversion_to_ft,diff_for_cost,op_price,po_price_jpy_usd,po_price_currency,remark,thb_cost,gp,pricelist_name,multiplier,make_same_price_as_standard_price,new_make_same_price_as_standard_price,standard_price,diff,dist_pl_mull,dist_ex_rate,unit_price,new_unit_price,diff_unit_price,status,supplier_name,stock_reference,cutting_assembly,detail)";
+                          sql += " values ('";
+                          value = row.getCell(0).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(1).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(2).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(3).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(4).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(5).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(6).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(7).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(8).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(9).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(10).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(11).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(12).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(13).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(14).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(15).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(16).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(17).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(18).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(19).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(20).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(21).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(22).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(23).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(24).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(25).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(26).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(27).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(28).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(29).value;
+                          sql += value.toString();
+
+                          sql += "','";
+                          value = row.getCell(30).value;
+                          sql += value.toString();
+
+                          sql += "')";
+                          console.log(sql);
+                          db.query(sql);
+                       });
         }
      });
      });
