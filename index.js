@@ -129,6 +129,34 @@ app.post("/master_data/deleteall", async (req, res) => {
  res.end();
 });
 
+app.post("/master_data/delete", async (req, res) => {
+    const db = require('./db');
+    const config = require('./config');
+    const helper = require('./helper');
+
+    sql = "delete from master_tsubakimoto where ";
+    sql += "Id=";
+    sql += req.body.Id;
+    console.log(sql);
+    await db.query(sql);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.write
+              (
+               JSON.stringify
+               (
+                {
+                 "status":true,
+                 "delete_record_from master_data":
+                  {
+                   "result": "pass",
+                   "id": req.body.Id
+                  }
+                 }
+               )
+              );
+    res.end();
+});
+
 app.post("/master_data/upload", async (req, res) => {
     const db = require('./db');
     const config = require('./config');
@@ -553,6 +581,34 @@ app.post("/master_formula/deleteall", async (req, res) => {
          )
  );
  res.end();
+});
+
+app.post("/master_formula/delete", async (req, res) => {
+    const db = require('./db');
+    const config = require('./config');
+    const helper = require('./helper');
+
+    sql = "delete from master_tsubakimoto_formula where ";
+    sql += "Id=";
+    sql += req.body.Id;
+    console.log(sql);
+    await db.query(sql);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.write
+              (
+               JSON.stringify
+               (
+                {
+                 "status":true,
+                 "delete_record_from master_formula":
+                  {
+                   "result": "pass",
+                   "id": req.body.Id
+                  }
+                 }
+               )
+              );
+    res.end();
 });
 
 //app.post("/master_formula/upload", async (req, res) => {
@@ -1185,7 +1241,7 @@ app.post("/master_formula/update", async (req, res) => {
                (
                 {
                  "status":true,
-                 "add_record_to_master_formula":
+                 "update_record_of_master_formula":
                   {
                    "result": "pass"
                   }
