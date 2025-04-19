@@ -735,8 +735,8 @@ app.post("/master_formula/upload", async (req, res) => {
              "upload_excel":
               {
                "result": "pass",
-               "oldpath": oldpath,
-               "newpath": newpath
+               "oldpath": "test",
+               "newpath": "test"
               }
              }
            )
