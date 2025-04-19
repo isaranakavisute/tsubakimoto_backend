@@ -911,6 +911,7 @@ app.post("/masterformula/upload", async (req, res) => {
 
                           sql += "')";
                           console.log(sql);
+                          console.log("---");
                           db.query(sql);
                        });
         }
