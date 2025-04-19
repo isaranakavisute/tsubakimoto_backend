@@ -66,13 +66,13 @@ app.post("/master_history/listall", async (req, res) => {
 });
 
 
-app.post("/master_data/delete", async (req, res) => {
+app.post("/master_history/delete", async (req, res) => {
     const db = require('./db');
     const config = require('./config');
     const helper = require('./helper');
 
     sql = "delete from master_pricelist_history where ";
-    sql += "Id=";
+    sql += "master_file_id=";
     sql += req.body.Id;
     console.log(sql);
     await db.query(sql);
