@@ -65,7 +65,6 @@ app.post("/master_history/listall", async (req, res) => {
  res.json(results);
 });
 
-
 app.post("/master_history/delete", async (req, res) => {
     const db = require('./db');
     const config = require('./config');
@@ -77,7 +76,7 @@ app.post("/master_history/delete", async (req, res) => {
     console.log(sql);
     await db.query(sql);
     res.writeHead(200, {'Content-Type': 'application/json'});
-              res.write
+    res.write
               (
                JSON.stringify
                (
@@ -514,6 +513,483 @@ app.post("/master_data/update", async (req, res) => {
 
 
 });
+
+
+
+
+
+
+app.post("/master_formula/listall", async (req, res) => {
+ const db = require('./db');
+ const config = require('./config');
+ const helper = require('./helper');
+ sql = "select * from master_tsubakimoto_formula";
+ console.log(sql);
+ var results = await db.query(sql);
+ console.log(results);
+ res.json(results);
+});
+
+app.post("/master_formula/deleteall", async (req, res) => {
+ const db = require('./db');
+ const config = require('./config');
+ const helper = require('./helper');
+ sql = "delete from master_tsubakimoto_formula";
+ console.log(sql);
+ await db.query(sql);
+ res.writeHead(200, {'Content-Type': 'application/json'});
+ res.write
+ (
+         JSON.stringify
+         (
+              {
+                 "status":true,
+                 "deleteall":
+                  {
+                    "table": "master_formula",
+                    "result": "pass"
+                  }
+              }
+         )
+ );
+ res.end();
+});
+
+app.post("/master_formula/upload", async (req, res) => {
+    const db = require('./db');
+    const config = require('./config');
+    const helper = require('./helper');
+    var form = new formidable.IncomingForm();
+    form.parse(req, function (err, fields, files) {
+     var oldpath = files.file[0].filepath;
+     var newpath =  'uploaded_files/myupload.xlsx';
+     fs.rename(oldpath, newpath, async function (err) {
+       if (err)
+       {
+         res.writeHead(200, {'Content-Type': 'application/json'});
+         res.write
+         (
+          JSON.stringify
+           (
+            {
+             "status":true,
+             "upload_excel":
+              {
+               "result": "fail",
+               "oldpath": oldpath,
+               "newpath": newpath
+              }
+             }
+           )
+          );
+          res.end();
+       }
+       else
+       {
+          var wb = new Excel.Workbook();
+          const content = await wb.xlsx.readFile(filePath);
+          const worksheet = content.worksheets[0];
+          const rowStartIndex = 4;
+          const numberOfRows = worksheet.rowCount - 4;
+          const rows = worksheet.getRows(rowStartIndex, numberOfRows) ?? [];
+          rows.map((row) => {
+                sql="insert into master_tsubakimoto_formula(category,part_no,previous_model_no,new_model_no,unit,manufacturer_suggested_retail_price,new_manufacturer_suggested_retail_price,conversion_to_ft,diff_for_cost,op_price,po_price_jpy_usd,po_price_currency,remark,thb_cost,gp,pricelist_name,multiplier,make_same_price_as_standard_price,new_make_same_price_as_standard_price,standard_price,diff,dist_pl_mull,dist_ex_rate,unit_price,new_unit_price,diff_unit_price,status,supplier_name,stock_reference,cutting_assembly,detail)";
+                sql += " values ('";
+                value = row.getCell(0).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(1).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(2).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(3).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(4).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(5).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(6).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(7).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(8).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(9).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(10).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(11).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(12).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(13).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(14).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(15).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(16).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(17).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(18).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(19).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(20).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(21).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(22).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(23).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(24).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(25).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(26).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(27).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(28).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(29).value;
+                sql += value.toString();
+
+                sql += "','";
+                value = row.getCell(30).value;
+                sql += value.toString();
+
+                sql += "')";
+                console.log(sql);
+                db.query(sql);
+             });
+            }
+          });
+          });
+          res.writeHead(200, {'Content-Type': 'application/json'});
+          res.write
+          (
+           JSON.stringify
+           (
+            {
+             "status":true,
+             "upload_excel":
+              {
+               "result": "pass",
+               "oldpath": oldpath,
+               "newpath": newpath
+              }
+             }
+           )
+          );
+          res.end();
+         });
+
+
+
+
+
+app.post("/master_formula/add", async (req, res) => {
+    const db = require('./db');
+    const config = require('./config');
+    const helper = require('./helper');
+
+    sql = "insert into master_tsubakimoto_formula";
+    sql += "(category,";
+    sql += "part_no,";
+    sql += "previous_model_no,";
+    sql += "new_model_no,";
+    sql += "unit,";
+    sql += "manufacturer_suggested_retail_price,";
+    sql += "new_manufacturer_suggested_retail_price,";
+    sql += "conversion_to_ft,";
+    sql += "diff_for_cost,";
+    sql += "op_price,";
+    sql += "po_price_jpy_usd,";
+    sql += "po_price_currency,";
+    sql += "remark,";
+    sql += "thb_cost,";
+    sql += "gp,";
+    sql += "pricelist_name,";
+    sql += "multiplier,";
+    sql += "make_same_price_as_standard_price,";
+    sql += "new_make_same_price_as_standard_price,";
+    sql += "standard_price,";
+    sql += "diff,";
+    sql += "dist_pl_mull,";
+    sql += "dist_ex_rate,";
+    sql += "unit_price,";
+    sql += "new_unit_price,";
+    sql += "diff_unit_price,";
+    sql += "status,";
+    sql += "supplier_name,";
+    sql += "stock_reference,";
+    sql += "cutting_assembly,";
+    sql += "detail)";
+    sql += " values ('";
+    sql += req.body.category;
+    sql += "','";
+    sql += req.body.part_no;
+    sql += "','";
+    sql += req.body.previous_model_no;
+    sql += "','";
+    sql += req.body.new_model_no;
+    sql += "','";
+    sql += req.body.unit;
+    sql += "','";
+    sql += req.body.manufacturer_suggested_retail_price;
+    sql += "','";
+    sql += req.body.new_manufacturer_suggested_retail_price;
+    sql += "','";
+    sql += req.body.conversion_to_ft;
+    sql += "','";
+    sql += req.body.diff_for_cost;
+    sql += "','";
+    sql += req.body.op_price;
+    sql += "','";
+    sql += req.body.po_price_jpy_usd;
+    sql += "','";
+    sql += req.body.po_price_currency;
+    sql += "','";
+    sql += req.body.remark;
+    sql += "','";
+    sql += req.body.thb_cost;
+    sql += "','";
+    sql += req.body.gp;
+    sql += "','";
+    sql += req.body.pricelist_name;
+    sql += "','";
+    sql += req.body.multiplier;
+    sql += "','";
+    sql += req.body.make_same_price_as_standard_price;
+    sql += "','";
+    sql += req.body.new_make_same_price_as_standard_price;
+    sql += "','";
+    sql += req.body.standard_price;
+    sql += "','";
+    sql += req.body.diff;
+    sql += "','";
+    sql += req.body.dist_pl_mull;
+    sql += "','";
+    sql += req.body.dist_ex_rate;
+    sql += "','";
+    sql += req.body.unit_price;
+    sql += "','";
+    sql += req.body.new_unit_price;
+    sql += "','";
+    sql += req.body.diff_unit_price;
+    sql += "','";
+    sql += req.body.status;
+    sql += "','";
+    sql += req.body.supplier_name;
+    sql += "','";
+    sql += req.body.stock_reference;
+    sql += "','";
+    sql += req.body.cutting_assembly;
+    sql += "','";
+    sql += req.body.detail;
+    sql += "')";
+    console.log(sql);
+    await db.query(sql);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+              res.write
+              (
+               JSON.stringify
+               (
+                {
+                 "status":true,
+                 "add_record_to_master_formula":
+                  {
+                   "result": "pass"
+                  }
+                 }
+               )
+              );
+    res.end();
+
+
+});
+
+
+app.post("/master_formula/update", async (req, res) => {
+    const db = require('./db');
+    const config = require('./config');
+    const helper = require('./helper');
+
+    sql = "update master_tsubakimoto_formula set ";
+    sql += "category='";
+    sql += req.body.category;
+    sql += "',";
+    sql += "part_no='";
+    sql += req.body.part_no;
+    sql += "',";
+    sql += "previous_model_no='";
+    sql += req.body.previous_model_no;
+    sql += "',";
+    sql += "new_model_no='";
+    sql += req.body.new_model_no;
+    sql += "',";
+    sql += "unit='";
+    sql += req.body.unit;
+    sql += "',";
+    sql += "manufacturer_suggested_retail_price='";
+    sql += req.body.manufacturer_suggested_retail_price;
+    sql += "',";
+    sql += "new_manufacturer_suggested_retail_price='";
+    sql += req.body.new_manufacturer_suggested_retail_price;
+    sql += "',";
+    sql += "conversion_to_ft='";
+    sql += req.body.conversion_to_ft;
+    sql += "',";
+    sql += "diff_for_cost='";
+    sql += req.body.diff_for_cost;
+    sql += "',";
+    sql += "op_price='";
+    sql += req.body.op_price;
+    sql += "',";
+    sql += "po_price_jpy_usd='";
+    sql += req.body.po_price_jpy_usd;
+    sql += "',";
+    sql += "po_price_currency='";
+    sql += req.body.po_price_currency;
+    sql += "',";
+    sql += "remark='";
+    sql += req.body.remark;
+    sql += "',";
+    sql += "thb_cost='";
+    sql += req.body.thb_cost;
+    sql += "',";
+    sql += "gp='";
+    sql += req.body.gp;
+    sql += "',";
+    sql += "pricelist_name='";
+    sql += req.body.pricelist_name;
+    sql += "',";
+    sql += "multiplier='";
+    sql += req.body.multiplier;
+    sql += "',";
+    sql += "make_same_price_as_standard_price='";
+    sql += req.body.make_same_price_as_standard_price;
+    sql += "',";
+    sql += "new_make_same_price_as_standard_price='";
+    sql += req.body.new_make_same_price_as_standard_price;
+    sql += "',";
+    sql += "standard_price='";
+    sql += req.body.standard_price;
+    sql += "',";
+    sql += "diff='";
+    sql += req.body.diff;
+    sql += "',";
+    sql += "dist_pl_mull='";
+    sql += req.body.dist_pl_mull;
+    sql += "',";
+    sql += "dist_ex_rate='";
+    sql += req.body.dist_ex_rate;
+    sql += "',";
+    sql += "unit_price='";
+    sql += req.body.unit_price;
+    sql += "',";
+    sql += "new_unit_price='";
+    sql += req.body.new_unit_price;
+    sql += "',";
+    sql += "diff_unit_price='";
+    sql += req.body.diff_unit_price;
+    sql += "',";
+    sql += "status='";
+    sql += req.body.status;
+    sql += "',";
+    sql += "supplier_name='";
+    sql += req.body.supplier_name;
+    sql += "',";
+    sql += "stock_reference='";
+    sql += req.body.stock_reference;
+    sql += "',";
+    sql += "cutting_assembly='";
+    sql += req.body.cutting_assembly;
+    sql += "',";
+    sql += "detail='";
+    sql += req.body.detail;
+    sql += "' where Id=";
+    sql += req.body.Id;
+    console.log(sql);
+    await db.query(sql);
+    res.writeHead(200, {'Content-Type': 'application/json'});
+              res.write
+              (
+               JSON.stringify
+               (
+                {
+                 "status":true,
+                 "add_record_to_master_formula":
+                  {
+                   "result": "pass"
+                  }
+                 }
+               )
+              );
+    res.end();
+});
+
+
 
 
 
