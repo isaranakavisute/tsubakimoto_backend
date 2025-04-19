@@ -588,7 +588,7 @@ app.post("/master_formula/upload", async (req, res) => {
        else
        {
           var wb = new Excel.Workbook();
-          const content = await wb.xlsx.readFile(filePath);
+          const content = await wb.xlsx.readFile(newpath);
           const worksheet = content.worksheets[0];
           const rowStartIndex = 4;
           const numberOfRows = worksheet.rowCount - 4;
