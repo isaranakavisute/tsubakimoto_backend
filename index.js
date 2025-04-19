@@ -916,6 +916,23 @@ app.post("/master_formula/upload", async (req, res) => {
                        });
         }
      });
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.write
+                    (
+                     JSON.stringify
+                     (
+                      {
+                       "status":true,
+                       "upload_excel":
+                        {
+                         "result": "pass",
+                         "oldpath": "test",
+                         "newpath": "test"
+                        }
+                       }
+                     )
+                    );
+                    res.end();
      });
 //               res.writeHead(200, {'Content-Type': 'application/json'});
 //               res.write
